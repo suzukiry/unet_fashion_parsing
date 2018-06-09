@@ -95,17 +95,19 @@ def batch_iter(batch_size = 16, shuffle=True):
 
             else:
                 continue
-
+                    
             for i in range(0, n_data, batch_size):
             #for i in range(steps_per_epoch):
-
+                
                 #start_index = i * batch_size # Start with 0
                 #end_index = min((i + 1) * batch_size, n_data)
                 #train_batch_ids = train_ids_input[start_index: end_index]
 
+                print(i)
+                print(n_data)
+                print(batch_size)
                 train_batch_ids = train_ids_input[i: i + batch_size]
-
-
+        
                 X_train = np.zeros((len(train_batch_ids), IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS), dtype=np.uint8)
                 Y_train = np.zeros((len(train_batch_ids), IMG_HEIGHT, IMG_WIDTH, N_Cls))
                 col_train = np.zeros((len(train_batch_ids), 1, IMG_SEGMENTATION))
@@ -144,10 +146,7 @@ def batch_iter(batch_size = 16, shuffle=True):
                         Y_train[n,:,:,n_cls] = np.where(cat_seg == n_cls, 1, 0)
 
                 yield X_train, Y_train
-                #yield train_batch_ids
                 print('generator yielded a batch {} - {},{}'.format(count, X_train.shape, Y_train.shape))
-                #print('generator yielded a batch {}'.format(count))
-                #print('----------------')
                 count += 1
 
     return steps_per_epoch, data_generator()
