@@ -106,29 +106,26 @@ if __name__ == '__main__':
     model = get_unet(IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS, N_Cls)    
     print("Done!")
 
-    
     # Fit model    
-    EPOCHS = 2
+    EPOCHS = 5
+
     #earlystopper, checkpointer = ready_fitting(model)
     cp, csv = ready_fitting(model)
 
     print("\n2. Fit U-Net model")
     
-    train_steps, train_batches = batch_iter(BATCH_SIZE)
+    train_steps, train_batches = batch_iter(BATCH_SIZE,mode="train")
+    valid_steps, valid_batches = batch_iter(BATCH_SIZE,mode="valid")
 
     results = model.fit_generator(
         train_batches,
-        epochs=EPOCHS,
         steps_per_epoch=train_steps,
+        epochs=EPOCHS,
+        validation_data=valid_batches,
+        validation_steps=valid_steps,
         callbacks=[cp, csv]
     )
-    #results = model.fit(
-    #    X_train, 
-    #    Y_train, 
-    #    validation_split=0.1, 
-    #    batch_size=8, 
-    #    epochs=EPOCHS,             
-    #    callbacks=[cp, csv]
-    #)
+
+    plot_learningcurve_from_csv(file_path(file="csv"))
     print("Done!")
     
