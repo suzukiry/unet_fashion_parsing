@@ -13,6 +13,9 @@ import numpy as np
 from utils import *
 import math
 
+# Fit model    
+EPOCHS = 100
+
 # Define IoU metric
 def mean_iou(y_true, y_pred):
     prec = []
@@ -106,8 +109,7 @@ if __name__ == '__main__':
     model = get_unet(IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS, N_Cls)    
     print("Done!")
 
-    # Fit model    
-    EPOCHS = 100
+
 
     #earlystopper, checkpointer = ready_fitting(model)
     cp, csv = ready_fitting(model)
