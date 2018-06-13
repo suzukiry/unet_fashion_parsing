@@ -99,15 +99,15 @@ if __name__ == '__main__':
 
     BATCH_SIZE = 16
    
-    X_train = np.load('./data/X_train.npy')
-    Y_train = np.load('./data/Y_train.npy')
+    #X_train = np.load('./data/X_train.npy')
+    #Y_train = np.load('./data/Y_train.npy')
 
     print("\n1. Create U-Net")
     model = get_unet(IMG_HEIGHT, IMG_WIDTH, IMG_CHANNELS, N_Cls)    
     print("Done!")
 
     # Fit model    
-    EPOCHS = 2
+    EPOCHS = 100
 
     #earlystopper, checkpointer = ready_fitting(model)
     cp, csv = ready_fitting(model)

@@ -63,9 +63,9 @@ if __name__ == '__main__':
     ids = list(arrays['#refs#'])
 
     # Train : Valid : Test = 0.72 : 0.08 : 0.2
-    train_ratio=0.01#0.8 * 0.9
-    valid_ratio=0.01#0.8 * 0.1
-    test_ratio=0.01 #test
+    train_ratio=0.9 * 0.9 #0.01#
+    valid_ratio=0.9 * 0.1 #0.01#
+    test_ratio=0.1 #test
 
     train_data_count=int(len(ids) * train_ratio)
     valid_data_count=int(len(ids) * valid_ratio)

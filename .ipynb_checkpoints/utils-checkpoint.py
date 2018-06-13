@@ -183,8 +183,8 @@ def batch_iter(batch_size = 16, shuffle=True, mode=None):
                         Y_batch[n,:,:,n_cls] = np.where(cat_seg == n_cls, 1, 0)
 
                 yield X_batch, Y_batch
-                print('generator yielded a batch {} - {},{}'.format(count, X_batch.shape, Y_batch.shape))
-                count += 1
+                #print('generator yielded a batch {} - {},{}'.format(count, X_batch.shape, Y_batch.shape))
+                #count += 1
 
     return steps_per_epoch, data_generator()
 
