@@ -107,7 +107,7 @@ if __name__ == '__main__':
     print("Done!")
 
     # Fit model    
-    EPOCHS = 5
+    EPOCHS = 2
 
     #earlystopper, checkpointer = ready_fitting(model)
     cp, csv = ready_fitting(model)

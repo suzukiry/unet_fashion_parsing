@@ -12,9 +12,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Train : Valid : Test = 0.72 : 0.08 : 0.2
-TRAIN_RATIO=0.8 * 0.9 #0.01#
-VALID_RATIO=0.8 * 0.1 #0.01#
-TEST_RATIO=0.2 #test #0.01
+TRAIN_RATIO=0.9 * 0.9 #0.01#
+VALID_RATIO=0.9 * 0.1 #0.01#
+TEST_RATIO=0.1 #test #0.01
 
 # Set some parameters
 IMG_WIDTH = 400
@@ -183,7 +183,7 @@ def batch_iter(batch_size = 16, shuffle=True, mode=None):
                         Y_batch[n,:,:,n_cls] = np.where(cat_seg == n_cls, 1, 0)
 
                 yield X_batch, Y_batch
-                #print('generator yielded a batch {} - {},{}'.format(count, X_batch.shape, Y_batch.shape))
+                print('generator yielded a batch {} - {},{}'.format(count, X_batch.shape, Y_batch.shape))
                 count += 1
 
     return steps_per_epoch, data_generator()
