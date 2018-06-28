@@ -1,8 +1,8 @@
 import os
 from datetime import datetime
 import json
-from tensorflow.python.keras.callbacks import ModelCheckpoint, CSVLogger
-from keras.callbacks import EarlyStopping, ModelCheckpoint
+#from tensorflow.python.keras.callbacks import ModelCheckpoint, CSVLogger
+from keras.callbacks import EarlyStopping, ModelCheckpoint, CSVLogger
 import numpy as np
 import h5py
 from tqdm import tqdm

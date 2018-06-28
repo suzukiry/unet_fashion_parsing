@@ -10,11 +10,11 @@ from keras import backend as K
 import tensorflow as tf
 import numpy as np
 
-from myutils import *
+from utils import *
 import math
 
 # Fit model    
-EPOCHS = 100
+EPOCHS = 25
 
 # Define IoU metric
 def mean_iou(y_true, y_pred):
